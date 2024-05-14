@@ -1,3 +1,11 @@
+.screen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: lightgoldenrodyellow;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
