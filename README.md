@@ -1,6 +1,6 @@
 # Elevators and Floors
 
-![Alt text](//public/screenshot.jpeg?raw=true "Screenshot")
+![Screenshot](/public/screenshot.jpeg?raw=true "Screenshot")
 
 This is an interactive application that simulates elevators and floors in a building. The project is deployed on Vercel at: https://elevator-murex.vercel.app/
 
