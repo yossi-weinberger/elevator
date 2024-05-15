@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Elevators and Floors
 
-## Getting Started
+This is an interactive application that simulates elevators and floors in a building. The project is deployed on Vercel at: https://elevator-murex.vercel.app/
 
-First, run the development server:
+## Functionality
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Display of 8 floors in the building
+- 3 elevators that operate between the floors
+- Clicking on a floor number sends the nearest elevator to that floor
+- Display of the travel time of the elevator to the selected floor
+- 'Ding' sound when the elevator arrives at the selected floor
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- React
+- Next.js
+- CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation and Running
 
-## Learn More
+1. Install the required packages with `npm install`
+2. Run the app with `npm run dev`
+3. Navigate to `http://localhost:3000` in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project structure is divided into three main components:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Floors**: This component displays all the floors in the building. It contains a row of buttons, one for each floor, that can be clicked to call an elevator. It also displays a small screen showing the remaining time until the elevator arrives at the selected floor.
 
-## Deploy on Vercel
+2. **Elevators**: This component displays the elevators themselves. It calculates the nearest elevator to the selected floor and moves it to that floor with a smooth animation. It also plays a "ding" sound when the elevator reaches its destination.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Home**: the main page of the application. It contains the other two components (Floors and Elevators) and allows communication between them through prop passing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Each component is a separate React file with its own CSS style. The project also utilizes React Hooks such as `useState` and `useEffect` for state management and responding to changes.
+
+## Technical Details
+
+### Floors
+
+- `numFloors`: A variable containing the number of floors in the building (8).
+- `remainingTime`: A state variable holding the remaining time until the elevator arrives at the selected floor.
+- `setRemainingTime`: A function to update `remainingTime`.
+- `handleFloorClick`: A function called when a floor button is clicked. It passes the floor number to the parent component through the `onFloorClick` prop.
+- `renderFloors`: A function that renders the floors and creates a button for each floor. It also displays the `TimeScreen` with the corresponding `remainingTime`.
+
+### Elevators
+
+- `floorHeight`: The height of one floor in pixels.
+- `numElevators`: The number of elevators (3).
+- `transitionTime`: The transition time in seconds for the elevator to move between floors.
+- `elevators`: An array of elevators, where each elevator contains the properties `id` (sequential number), `pos` (current position in pixels), `duration` (transition time to the next floor in seconds).
+- `setElevators`: A function to update `elevators`.
+- `useEffect`: A hook that calculates the nearest elevator to the selected floor and moves it to that floor. It also plays a "ding" sound when the elevator reaches its destination.
+- `renderElevators`: A function that renders the elevators and creates a div for each elevator with the appropriate CSS styles for position and transition time.
+
+### Home
+
+- `selectedFloor`: A state variable holding the selected floor.
+- `setSelectedFloor`: A function to update `selectedFloor`.
+- `transitionDuration`: A state variable holding the transition duration of the elevator.
+- `setTransitionDuration`: A function to update `transitionDuration`.
+
+The `Home` component passes `selectedFloor` and `transitionDuration` as props to the `Floors` and `Elevators` components, and receives `setSelectedFloor` and `setTransitionDuration` from them to update these variables.
