@@ -32,7 +32,7 @@ The project structure is divided into three main components:
 
 2. **Elevators**: This component displays the elevators themselves. It calculates the nearest elevator to the selected floor and moves it to that floor with a smooth animation. It also plays a "ding" sound when the elevator reaches its destination.
 
-3. **Home**: the main page of the application. It contains the other two components (Floors and Elevators) and allows communication between them through prop passing.
+3. **App/page**: the main page of the application. It contains the other two components (Floors and Elevators) and allows communication between them through prop passing.
 
 Each component is a separate React file with its own CSS style. The project also utilizes React Hooks such as `useState` and `useEffect` for state management and responding to changes.
 
@@ -56,11 +56,11 @@ Each component is a separate React file with its own CSS style. The project also
 - `useEffect`: A hook that calculates the nearest elevator to the selected floor and moves it to that floor. It also plays a "ding" sound when the elevator reaches its destination.
 - `renderElevators`: A function that renders the elevators and creates a div for each elevator with the appropriate CSS styles for position and transition time.
 
-### Home
+### App/page
 
 - `selectedFloor`: A state variable holding the selected floor.
 - `setSelectedFloor`: A function to update `selectedFloor`.
 - `transitionDuration`: A state variable holding the transition duration of the elevator.
 - `setTransitionDuration`: A function to update `transitionDuration`.
 
-The `Home` page passes `selectedFloor` and `transitionDuration` as props to the `Floors` and `Elevators` components, and receives `setSelectedFloor` and `setTransitionDuration` from them to update these variables.
+The `App/page` page passes `selectedFloor` and `transitionDuration` as props to the `Floors` and `Elevators` components, and receives `setSelectedFloor` and `setTransitionDuration` from them to update these variables.
