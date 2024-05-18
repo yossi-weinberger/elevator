@@ -63,4 +63,4 @@ Each component is a separate React file with its own CSS style. The project also
 - `transitionDuration`: A state variable holding the transition duration of the elevator.
 - `setTransitionDuration`: A function to update `transitionDuration`.
 
-The `Home` component passes `selectedFloor` and `transitionDuration` as props to the `Floors` and `Elevators` components, and receives `setSelectedFloor` and `setTransitionDuration` from them to update these variables.
+The `Home` page passes `selectedFloor` and `transitionDuration` as props to the `Floors` and `Elevators` components, and receives `setSelectedFloor` and `setTransitionDuration` from them to update these variables.
